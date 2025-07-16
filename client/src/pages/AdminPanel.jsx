@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/5.css';
 import { useNavigate } from 'react-router-dom';
+import axios from '../axiosInstance';
 
 function AdminPanel() {
   const [categories, setCategories] = useState([]);
@@ -23,19 +24,19 @@ function AdminPanel() {
   }, []);
 
   const fetchCategories = async () => {
-    const res = await axios.get('http://localhost:5000/api/categories');
+    const res = await axios.get('/api/categories');
     setCategories(res.data);
   };
 
   const fetchPosts = async () => {
-    const res = await axios.get('http://localhost:5000/api/posts');
+    const res = await axios.get('/api/posts');
     setPosts(res.data);
   };
 
   const handleCategorySubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/categories/add', { name: newCategory });
+      await axios.post('/api/categories/add', { name: newCategory });
       setNewCategory('');
       fetchCategories();
     } catch (err) {
@@ -53,7 +54,7 @@ function AdminPanel() {
     formData.append('photo', postForm.photo);
 
     try {
-      await axios.post('http://localhost:5000/api/posts/add', formData);
+      await axios.post('/api/posts/add', formData);
       setPostForm({ title: '', date: '', category: '', description: '', photo: null });
       fetchPosts();
     } catch (err) {
@@ -63,7 +64,7 @@ function AdminPanel() {
 
   const handleDeletePost = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${id}`);
+      await axios.delete(`/api/posts/${id}`);
       fetchPosts();
     } catch (err) {
       alert('Error deleting post');
@@ -144,7 +145,8 @@ function AdminPanel() {
         <div className="posts-list">
           {posts.map((post) => (
             <div key={post._id} className="post-card">
-              <img src={`http://localhost:5000/${post.photo}`} alt="Post" />
+              <img src={`${import.meta.env.VITE_BACKEND_URL}/${post.photo}`} />
+
               <div className="post-content">
                 <h3>{post.title}</h3>
                 <p>Category: {post.category?.name}</p>
