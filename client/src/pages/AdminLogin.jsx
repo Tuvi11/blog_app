@@ -8,17 +8,25 @@ function AdminLogin() {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-     await axios.post('/api/admin/login', formData);
+const handleLogin = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await axios.post('/api/admin/login', formData);
+    console.log('Login response:', res); // 🧪
+
+    if (res.status === 200 && res.data.success) {
       localStorage.setItem('isAdmin', 'true');
+      console.log('Admin logged in, navigating...');
       navigate('/admin');
-    } catch (err) {
-      alert('Invalid admin credentials');
-      console.error(err);
+    } else {
+      alert('Invalid login (not 200 or success=false)');
     }
-  };
+  } catch (err) {
+    alert('Invalid admin credentials');
+    console.error('Login error:', err.response?.data || err.message);
+  }
+};
+
 
   return (
     <div className="admin-login">
