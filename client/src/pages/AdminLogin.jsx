@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/4.css'; // Make sure this path is correct
+import '../styles/4.css';
+import axios from '../axiosInstance';// Make sure this path is correct
 
 function AdminLogin() {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -10,7 +11,7 @@ function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/admin/login', formData);
+     await axios.post('/api/admin/login', formData);
       localStorage.setItem('isAdmin', 'true');
       navigate('/admin');
     } catch (err) {
