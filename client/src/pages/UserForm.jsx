@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import bgVideo from '../assets/ties.mp4';
 import introVideo from '../assets/cross.mp4';
+import axios from '../axiosInstance';
 import '../styles/1.css';
 
 function UserForm() {
@@ -21,7 +22,7 @@ function UserForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/users/register', formData);
+      await axios.post('/api/users/register', formData);
       navigate('/blogs');
     } catch (err) {
       alert('Failed to register user.');
