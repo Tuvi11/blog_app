@@ -1,0 +1,222 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Scrollbar Hidden === */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* === Base HTML & Body === */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  background-color: #3D0A05;
+  color: #DAC1B1;
+}
+
+/* === Video Section === */
+.video-section {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  height: 40vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.top-video {
+  width: 100%; /* ✅ DO NOT USE 100vw */
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* === Category Bar === */
+.category-bar {
+  padding: 2rem 2rem 1rem;
+  text-align: center;
+  background: linear-gradient(to bottom, #000000, #3D0A05);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.category-btn {
+  background: #A58570;
+  color: #3D0A05;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  margin: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  background-color: #DAC1B1;
+  color: #7F1F0E;
+}
+
+.category-btn.active {
+  background-color: #7F1F0E;
+  color: #fff;
+}
+
+/* === Blog Cards Container === */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #3D0A05;
+  gap: 2rem;
+  padding: 6rem 2rem 3rem;
+  z-index: 1;
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* === Individual Blog Card === */
+.blog-card {
+  background: #A58570;
+  border-radius: 1rem;
+  width: 350px;
+  padding-top: 150px;
+  margin-bottom: 5rem;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  transition: transform 0.3s ease;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.blog-card:hover {
+  transform: translateY(-8px);
+}
+
+/* === Image in Card === */
+.card-image {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #A58570;
+  background: #fff;
+  z-index: 2;
+}
+
+/* === Card Content === */
+.card-content {
+  padding: 1.2rem;
+}
+
+.card-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #3D0A05;
+}
+
+.rating {
+  background: #DAC1B1;
+  color: #7F1F0E;
+  padding: 0.3rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  color: #3D0A05;
+  margin-bottom: 0.4rem;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #3D0A05;
+}
+
+/* === Read Button === */
+.read-btn {
+  margin-top: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #3D0A05;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.read-btn:hover {
+  background: #7F1F0E;
+}
+
+/* === Category Tag === */
+.category-tag {
+  display: inline-block;
+  background-color: #3D0A05;
+  color: #DAC1B1;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 1rem 2rem;
+  }
+
+  .blog-card {
+    width: 100%;
+    max-width: 350px;
+    padding-top: 100px;
+    margin-bottom: 2rem;
+    height: 400px;
+  }
+
+  .video-section {
+    height: 30vh;
+  }
+}

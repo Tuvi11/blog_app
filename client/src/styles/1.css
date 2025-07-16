@@ -1,0 +1,176 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === HTML and Body === */
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* === Intro Section === */
+.intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: transform 1s ease-in-out;
+}
+
+.intro-screen.slide-up {
+  transform: translateY(-100%);
+}
+
+.intro-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.rotating-text {
+  position: absolute;
+  bottom: 50%;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 2;
+  text-align: center;
+}
+
+.rotating-text span {
+  display: inline-block;
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  font-weight: 600;
+  color: white;
+  padding-left: 100%;
+  animation: scroll-text 7s linear infinite;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* === Main Content === */
+.main-content {
+  height: 100vh;
+  width: 100vw;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* === Background Video === */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+/* === Form Container === */
+.form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* === Glass Form Styling === */
+.glass-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 2.5rem;
+  border-radius: 1rem;
+  min-width: 320px;
+  text-align: center;
+  color: #fff;
+  background-color: transparent; /* fully see-through */
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+
+.glass-form h2 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.glass-form input {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.glass-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.glass-form button {
+  padding: 0.8rem 1rem;
+  background-color: #c82c2c;
+  color: rgb(209, 183, 183);
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.glass-form button:hover {
+  background-color: #9e0000;
+}
+
+/* === Admin Link === */
+.admin-link {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.admin-link a {
+  color: #ffd5d5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.admin-link a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
