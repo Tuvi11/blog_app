@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/3.css';
 import topVideo from '../assets/hheedd.mp4';
+import axios from '../axiosInstance';
 
 function BlogList() {
   const [posts, setPosts] = useState([]);
@@ -16,7 +17,7 @@ function BlogList() {
 
   const fetchPosts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/posts');
+      const res = await axios.get('/api/posts');
       setPosts(res.data);
     } catch (err) {
       console.error('Error fetching posts', err);
@@ -25,7 +26,7 @@ function BlogList() {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/categories');
+      const res = await axios.get('/api/categories');
       setCategories(res.data);
     } catch (err) {
       console.error('Error fetching categories', err);
@@ -40,7 +41,7 @@ function BlogList() {
     }
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/posts/category/${categoryId}`);
+      const res = await axios.get(`/api/posts/category/${categoryId}`);
       setPosts(res.data);
       setActiveCategory(categoryId);
     } catch (err) {
@@ -83,7 +84,7 @@ function BlogList() {
         {posts.map((post) => (
           <div key={post._id} className="blog-card">
             <img
-              src={`http://localhost:5000/${post.photo}`}
+              src={`${import.meta.env.VITE_BACKEND_URL}/${post.photo}`}
               alt="Post"
               className="card-image"
             />
