@@ -7,11 +7,18 @@ exports.loginAdmin = async (req, res) => {
     const admin = await Admin.findOne({ username, password });
 
     if (!admin) {
-      return res.status(401).json({ error: 'Invalid admin credentials' });
+      return res.status(401).json({ success: false, message: 'Invalid admin credentials' });
     }
 
-    res.status(200).json({ message: 'Admin login successful', admin });
+    res.status(200).json({
+      success: true,
+      message: 'Admin login successful',
+      admin: {
+        _id: admin._id,
+        username: admin.username
+      }
+    });
   } catch (err) {
-    res.status(500).json({ error: 'Server error during admin login', details: err });
+    res.status(500).json({ success: false, message: 'Server error during admin login', error: err });
   }
 };
