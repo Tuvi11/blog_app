@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+
 import bgVideo from '../assets/ties.mp4';
 import introVideo from '../assets/cross.mp4';
 import axios from '../axiosInstance';
