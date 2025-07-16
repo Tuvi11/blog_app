@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+
 import '../styles/3.css';
 import topVideo from '../assets/hheedd.mp4';
 import axios from '../axiosInstance';
