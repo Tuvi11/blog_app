@@ -3,7 +3,8 @@ const Post = require('../models/Post');
 exports.createPost = async (req, res) => {
   try {
     const { title, content, category } = req.body;
-    const photoPath = req.file ? req.file.path : null;
+    const photoPath = req.file ? req.file.path.replace(/\\/g, '/') : null;
+
 
     const newPost = new Post({ title, content, category, photo: photoPath });
     await newPost.save();
