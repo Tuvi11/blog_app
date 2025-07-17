@@ -68,7 +68,7 @@ function BlogList() {
         >
           All
         </button>
-        {categories.map((cat) => (
+        {categories.slice().reverse().map((cat) => (
           <button
             key={cat._id}
             className={`category-btn ${activeCategory === cat._id ? 'active' : ''}`}
