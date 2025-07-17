@@ -18,7 +18,8 @@ function BlogList() {
   const fetchPosts = async () => {
     try {
       const res = await axios.get('/api/posts');
-      setPosts(res.data);
+       const sortedPosts = res.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+    setPosts(sortedPosts);
     } catch (err) {
       console.error('Error fetching posts', err);
     }
@@ -42,7 +43,8 @@ function BlogList() {
 
     try {
       const res = await axios.get(`/api/posts/category/${categoryId}`);
-      setPosts(res.data);
+      const sortedPosts = res.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+    setPosts(sortedPosts);
       setActiveCategory(categoryId);
     } catch (err) {
       console.error('Error filtering posts', err);
