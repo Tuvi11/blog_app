@@ -81,7 +81,7 @@ function BlogList() {
 
       {/* Blog Cards */}
       <section className="cards-container">
-        {posts.map((post) => (
+        {posts.slice().reverse().map((post) => (
           <div key={post._id} className="blog-card">
             <img
               src={`${import.meta.env.VITE_BACKEND_URL}/${post.photo}`}
