@@ -81,26 +81,28 @@ function BlogList() {
         ))}
       </div>
 
+
       {/* Blog Cards */}
-      <section className="cards-container">
-        {posts.slice().reverse().map((post) => (
-          <div key={post._id} className="blog-card">
-            <img
-              src={`${import.meta.env.VITE_BACKEND_URL}/${post.photo}`}
-              alt="Post"
-              className="card-image"
-            />
-            <div className="card-content">
-              <h3>{post.title}</h3>
-              <div className="rating">
-                {new Date(post.date).toLocaleDateString()}
-              </div>
-              <p>{post.content}</p>
-              <div className="category-tag">{post.category?.name}</div>
-            </div>
-          </div>
-        ))}
-      </section>
+<section className="cards-container">
+  {posts.map((post) => (
+    <div key={post._id} className="blog-card">
+      <img
+        src={`${import.meta.env.VITE_BACKEND_URL}/${post.photo}`}
+        alt="Post"
+        className="card-image"
+      />
+      <div className="card-content">
+        <h3>{post.title}</h3>
+        <div className="rating">
+          {new Date(post.date).toLocaleDateString()}
+        </div>
+        <p>{post.content}</p>
+        <div className="category-tag">{post.category?.name}</div>
+      </div>
+    </div>
+  ))}
+</section>
+
     </div>
   );
 }
