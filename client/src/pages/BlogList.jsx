@@ -19,7 +19,7 @@ function BlogList() {
     try {
       const res = await axios.get('/api/posts');
        const sortedPosts = res.data.sort((a, b) => new Date(b.date) - new Date(a.date));
-    setPosts(sortedPosts);
+    setPosts(sortedPosts.slice(0,9));
     } catch (err) {
       console.error('Error fetching posts', err);
     }
@@ -68,7 +68,7 @@ function BlogList() {
           className={`category-btn ${activeCategory === null ? 'active' : ''}`}
           onClick={() => filterByCategory(null)}
         >
-          All
+          Recent
         </button>
         {categories.slice().reverse().map((cat) => (
           <button
