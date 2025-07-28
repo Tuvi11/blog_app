@@ -1,11 +1,13 @@
 .blog-footer {
-  background-color: #3D0A05;  /* Dark background */
+  background-color: #000000;  /* Dark background */
   color: #DAC1B1;             /* Soft white text */
   padding: 1.5rem 0;
   text-align: center;
   font-size: 0.95rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 3rem;
+  margin-top: auto;
+  position:relative;
+  z-index:3;
   font-family: 'Poppins', sans-serif;
 }
 
