@@ -1,12 +1,12 @@
 import React from 'react';
-import '../styles/3.css'; // Make sure this includes footer styles or add them below
+import '../styles/footer.css';
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <p>&copy; {new Date().getFullYear()} | NIC Blog. All rights reserved.</p>
-        <p>Made with ❤️ by NIC Web Team</p>
+    <footer className="blog-footer">
+      <div className="footer-container">
+        <p>&copy;  | My Blog App</p>
+        <p>Crafted by Soujanya Maharudra</p>
       </div>
     </footer>
   );
