@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import '../styles/4.css';
-import axios from '../axiosInstance';// Make sure this path is correct
+import axios from '../axiosInstance';
 
 function AdminLogin() {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -12,7 +12,7 @@ const handleLogin = async (e) => {
   e.preventDefault();
   try {
     const res = await axios.post('/api/admin/login', formData);
-    console.log('Login response:', res); // 🧪
+    console.log('Login response:', res); 
 
     if (res.status === 200 && res.data.success) {
       localStorage.setItem('isAdmin', 'true');
